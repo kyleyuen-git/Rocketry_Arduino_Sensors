@@ -3,9 +3,22 @@
 #include <Adafruit_MPL3115A2.h>
 
 Adafruit_MPL3115A2 mpl;
+void dataCollection();
+void WireSetup();
+
 
 
 void setup() {
+  WireSetup();
+  
+}
+
+void loop() {
+  dataCollection();
+
+}
+
+void WireSetup(){
   Serial.begin(115200);
   delay(2000);
 
@@ -32,7 +45,7 @@ void setup() {
   mpl.setSeaPressure(1013.25);
 }
 
-void loop() {
+void dataCollection(){
   float alt = mpl.getAltitude();
   float pres = mpl.getPressure();
   float temp = mpl.getTemperature();
@@ -72,8 +85,6 @@ void loop() {
 //   Serial.println(mpl.getAltitude());
 //   delay(500);
 // }
-
-
 
 
 // check to see serial monitor is compatible 
