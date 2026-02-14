@@ -3,6 +3,7 @@
 #include <Adafruit_MPL3115A2.h>
 
 Adafruit_MPL3115A2 mpl;
+
 void dataCollection();
 void WireSetup();
 
@@ -26,7 +27,7 @@ void WireSetup(){
 
   // I2C explicit
   Wire.begin();
-  delay(10);
+  delay(100);
 
   // while(!mpl.begin(&Wire)){
   //   Serial.println("Sensor not found (begin failed)");
